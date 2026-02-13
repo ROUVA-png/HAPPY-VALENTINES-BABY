@@ -195,7 +195,7 @@ header{
 <h1>💖 Our Valentine Love Journey 💖</h1>
 <p>
 💖 Answer fun questions about us, earn love points, and see our love journey grow!
-<br>⏳ You have 10 seconds per question, a 15-second countdown before the next,and can only play once every 24 hours! 😂❤️
+<br>⏳ You have 15 seconds per question, a 15-second countdown before the next,and can only play once every 10 hours! 😂❤️
 </p>
 <button onclick="startGame()">Begin Our Story ✨</button>
 </div>
@@ -239,7 +239,7 @@ function canPlay(){
   const lastPlay = localStorage.getItem('lastPlay');
   if(lastPlay){
     const diff = Date.now() - parseInt(lastPlay);
-    if(diff <60*1000){ // 24-hour limit
+    if(diff <10*60*60*1000){ // 24-hour limit
       const hrs = Math.ceil((24*60*60*1000 - diff)/3600000);
       alert("You have played recently. Next play in "+hrs+" hours.");
       return false;
@@ -275,7 +275,7 @@ function loadQuestion(){
 
   updateEarnings();
 
-  let timeLeft = 10;
+  let timeLeft = 15;
   const timerDiv = document.getElementById("timer");
   timerDiv.innerText = `Time Left: ${timeLeft} seconds`;
   clearInterval(questionTimer);
@@ -451,6 +451,7 @@ function showAdminPanel(){
 
 </body>
 </html>
+
 
 
 

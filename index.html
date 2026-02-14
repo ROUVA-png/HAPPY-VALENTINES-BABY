@@ -239,8 +239,8 @@ function canPlay(){
   const lastPlay = localStorage.getItem('lastPlay');
   if(lastPlay){
     const diff = Date.now() - parseInt(lastPlay);
-    if(diff <5*60*60*1000){ // 24-hour limit
-      const hrs = Math.ceil((5*60*60*1000 - diff)/3600000);
+    if(diff <24*60*60*1000){ // 24-hour limit
+      const hrs = Math.ceil((24*60*60*1000 - diff)/3600000);
       alert("You have played recently. Next play in "+hrs+" hours.");
       return false;
     }
@@ -451,6 +451,7 @@ function showAdminPanel(){
 
 </body>
 </html>
+
 
 
 
